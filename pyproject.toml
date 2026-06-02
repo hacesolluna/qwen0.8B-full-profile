@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qaihub-qwen-profiler"
+version = "0.1.0"
+description = "Small CLI wrapper for profiling Qwen/Qwen-VL models on Qualcomm AI Hub with configurable prompt, image size, and model."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pillow>=10.0.0",
+  "numpy>=1.24.0",
+  "huggingface_hub>=0.23.0",
+]
+
+[project.optional-dependencies]
+aihub = ["qai-hub>=0.20.0", "qai-hub-models>=0.28.0"]
+export = ["torch>=2.3.0", "transformers>=4.45.0", "onnx>=1.16.0", "accelerate>=0.30.0"]
+
+[project.scripts]
+qaihub-qwen-profile = "qaihub_qwen_profiler.cli:main"
